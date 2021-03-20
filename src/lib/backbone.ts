@@ -17,7 +17,8 @@ import { IRemoteData } from './IRemoteData';
 //                      - StorageClass(TABLE)
 // c:\DBFS\MyAPP\CAMPER          
 //Backbone.emulateHTTP = true;
-//Backbone.emulateJSON = true;
+// Backbone.emulateJSON = true;
+
 
 
 let urlBackbone: string = "";
@@ -49,7 +50,7 @@ Backbone.Model.prototype.parse = function (resp, xhr) {
 
 
 
-interface IRemoteDataFactory {
+export interface IRemoteDataFactory {
     newObject(): RemoteData;
     newObject(id?: string): RemoteData;
     newObject(id?: string, desc?: string): RemoteData;
@@ -1742,7 +1743,7 @@ interface IRemoteCollection<T> extends IRemoteData {
 
 
 
-class RemoteCollection<T> extends RemoteData implements IRemoteCollection<T> {
+export class RemoteCollection<T> extends RemoteData implements IRemoteCollection<T> {
 
     //constructor(classStorageName: string);
     //constructor(classStorageName: string, id?: string);
@@ -2034,3 +2035,5 @@ function loadjscssfile(filename, filetype) {
         document.getElementsByTagName("head")[0].appendChild(fileref);
 }
 
+setUrlBackbone("http://localhost/TeloregaloMa/php/genericitemEx.php");
+setVirtualDB('c:/ADVsec/TeloregaloMa', 'DB');
